@@ -1,0 +1,26 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Graph Coloring</title>
+  <style>
+    body { font-family: Arial; padding: 20px; }
+    table { border-collapse: collapse; }
+    th, td { border: 1px solid #ddd; padding: 8px; }
+  </style>
+</head>
+<body>
+  <h2>Kết quả tô màu đồ thị</h2>
+  <img src="data:image/png;base64,{{ img_b64 }}" />
+  <table>
+    <tr><th>Đỉnh</th><th>Bậc</th><th>Màu</th></tr>
+    {% for v,c in coloring.items()|dictsort %}
+    <tr>
+      <td>{{ v }}</td>
+      <td>{{ degree_map[v] }}</td>
+      <td style="background:{{ c }};color:white">{{ c }}</td>
+    </tr>
+    {% endfor %}
+  </table>
+</body>
+</html>
